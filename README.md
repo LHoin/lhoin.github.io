@@ -1,1 +1,4 @@
-# lhoin.github.io
+lhoin.jquery.timepicker
+=======================
+
+A classic clock time picker
