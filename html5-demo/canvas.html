@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Canvas</title>
+		<style>
+			#where-to-draw {
+				width: 600px;
+				height: 600px;
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="where-to-draw" height="600" width="600"> </canvas>
+		
+		<script type="text/javascript">
+
+			var canvas = document.getElementById('where-to-draw');
+			var context = canvas.getContext('2d');
+
+			var size = 10;
+			var angle = 30;
+			(function drawRect() {
+				if (size > 100) {
+					return;
+				}
+				context.save();
+				context.translate(300,300);
+				context.strokeStyle = '#888';
+				context.rotate(angle * Math.PI / 180);
+				//context.beginPath();
+				//context.arc(size, 0, size, 0, 2*Math.PI);
+				//context.stroke();
+				context.strokeRect(0, 0, size, size);
+				context.restore();
+				size = size + 1;
+				angle = angle + 5;
+				setTimeout(drawRect, 20);
+			})();
+
+		</script>
+	</body>
+</html>
