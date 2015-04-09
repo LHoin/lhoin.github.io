@@ -3,8 +3,8 @@
 		<title>SVG</title>
 		<style>
 			svg {
-				height: 400px;
-				width: 400px;
+				height: 600px;
+				width: 600px;
 				border: 1px solid #ccc;
 			}
 
@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		
-		<svg id="svg-container" width="400" height="400">
+		<svg id="svg-container" width="600" height="600">
 		</svg>
 		
 		<script type="text/javascript">
@@ -22,7 +22,7 @@
 			var svg = document.getElementById('svg-container');
 
 			function drawRect() {
-				if (size > 100) {
+				if (size > 200) {
 					return;
 				}
 
@@ -34,7 +34,7 @@
 				rect.setAttribute('stroke', '#888');
 				rect.setAttribute('stroke-width', '1px');
 				rect.setAttribute('fill', 'transparent');
-				rect.setAttribute('transform', 'translate(200,200) rotate('+ angle +')');
+				rect.setAttribute('transform', 'translate(300,300) rotate('+ angle +')');
 				rect.onmouseenter = function(event) {
 					this.setAttribute('stroke', '#E26161');
 					this.setAttribute('stroke-width', '3px');
