@@ -1,10 +1,60 @@
 <html>
 	<head>
-		<title></title>
+		<title>SVG</title>
+		<style>
+			svg {
+				height: 400px;
+				width: 400px;
+				border: 1px solid #ccc;
+			}
+
+		</style>
 	</head>
 	<body>
 		
+		<svg id="svg-container" width="400" height="400">
+		</svg>
+		
 		<script type="text/javascript">
+
+			var size = 10;
+			var angle = 30;
+			var svg = document.getElementById('svg-container');
+
+			function drawRect() {
+				if (size > 100) {
+					return;
+				}
+
+				var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+				rect.setAttribute('x', 0);
+				rect.setAttribute('y', 0);
+				rect.setAttribute('width', size);
+				rect.setAttribute('height', size);
+				rect.setAttribute('stroke', '#888');
+				rect.setAttribute('stroke-width', '1px');
+				rect.setAttribute('fill', 'transparent');
+				rect.setAttribute('transform', 'translate(200,200) rotate('+ angle +')');
+				rect.onmouseenter = function(event) {
+					this.setAttribute('stroke', '#E26161');
+					this.setAttribute('stroke-width', '3px');
+					this.setAttribute('fill', '#E26161');
+					this.setAttribute('fill-opacity', '0.6');
+				};
+				rect.onmouseleave = function(event) {
+					this.setAttribute('stroke', '#888');
+					this.setAttribute('stroke-width', '1px');
+					this.setAttribute('fill', 'transparent');
+					this.setAttribute('fill-opacity', '1');
+				};
+				svg.appendChild(rect);
+				size = size + 1;
+				angle = angle + 5;
+				setTimeout(drawRect, 20);
+			}
+
+				drawRect();
+
 		</script>
 	</body>
 </html>
