@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>SVG</title>
+		<style>
+			svg {
+				height: 600px;
+				width: 600px;
+				border: 1px solid #ccc;
+			}
+
+		</style>
+	</head>
+	<body>
+		
+		<svg id="svg-container" width="600" height="600">
+		</svg>
+
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>	
+		<script type="text/javascript">
+
+			var size = 10;
+			var angle = 30;
+			var svg = d3.select('#svg-container');
+
+			function drawRect() {
+				if (size > 200) {
+					return;
+				}
+
+				svg
+					.append('rect')
+					.attr('x', 0)
+					.attr('y', 0)
+					.attr('width', 0)
+					.attr('height', 0)
+					.attr('stroke', '#888')
+					.attr('stroke-width', '1px')
+					.attr('fill', 'transparent')
+					.attr('transform', 'translate(300,300) rotate('+ angle + ')')
+					.transition()
+					.duration(2000)
+					.attr('width', size)
+					.attr('height', size)
+					.attr('transform', 'translate(300,300) rotate('+ (angle+5) +')');
+				size = size + 1;
+				angle = angle + 5;
+				setTimeout(drawRect, 20);
+			}
+
+			drawRect();
+
+		</script>
+	</body>
+</html>

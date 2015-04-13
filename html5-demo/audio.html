@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<title>audio</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<audio id="sound" controls>
+			<source src="" type="">
+		</audio>
+			
+		<button id="play">播放</button>
+		<button id="pause">暂停</button>
+		<script type="text/javascript">
+			var audio = document.getElementById('sound');
+
+			document.getElementById('play').onclick = function() {
+				audio.play();
+			};
+
+			document.getElementById('pause').onclick = function() {
+				audio.pause();
+			};
+
+		</script>
+	</body>
+</html>
