@@ -7,13 +7,17 @@
 	</head>
 	<body>
 		<audio id="sound" controls>
-			<source src="" type="">
+			<source src="source/phone1.mp3" type="audio/mp3">
 		</audio>
 			
-		<button id="play">播放</button>
-		<button id="pause">暂停</button>
+		<button id="play">play</button>
+		<button id="pause">pause</button>
+		<button id="next">next</button>
+
 		<script type="text/javascript">
 			var audio = document.getElementById('sound');
+			var filenames = ['phone2.mp3', 'phone3.mp3', 'phone1.mp3'];
+		
 
 			document.getElementById('play').onclick = function() {
 				audio.play();
@@ -21,6 +25,13 @@
 
 			document.getElementById('pause').onclick = function() {
 				audio.pause();
+			};
+
+			document.getElementById('next').onclick = function() {
+				var filename = filenames.shift();
+				filenames.push(filename);
+				audio.getElementsByTagName('source')[0].src  = 'source/' + filename;
+				audio.load();
 			};
 
 		</script>
