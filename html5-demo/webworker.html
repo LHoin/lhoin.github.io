@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title>video</title>
+		<style>
+		</style>
+	</head>
+	<body>
+
+		<button id="sort">start</button>
+		<script type="text/javascript">
+
+			document.getElementById('sort').onclick = function() {
+				var worker = new Worker('workers/worker.js');
+				worker.onmessage = function() {
+					console.log('finished');
+				};
+			};
+
+		</script>
+	</body>
+</html>
