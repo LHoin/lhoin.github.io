@@ -12,8 +12,8 @@
 
 			document.getElementById('sort').onclick = function() {
 				var worker = new Worker('workers/worker.js');
-				worker.onmessage = function() {
-					console.log('finished');
+				worker.onmessage = function(e) {
+					console.log(e.data);
 				};
 			};
 
