@@ -18,16 +18,22 @@
 		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>	
 		<script type="text/javascript">
 
-			var size = 10;
-			var angle = 30;
-			var svg = d3.select('#svg-container');
+			var initAngle = 30;
+			var data = [];
 
-			function drawRect() {
-				if (size > 200) {
-					return;
-				}
+			function update() {
+				var rect = d3.select('#svg-container')
+					.selectAll('rect')
+					.data(data);
 
-				svg
+				rect
+					.attr('width', function(d) { return d; })
+					.attr('height', function(d) { return d; })
+					.attr('transform', function(d,i) { 
+						return 'translate(300,300) rotate('+  (initAngle + i*5) + ')';
+					});
+
+				rect.enter()
 					.append('rect')
 					.attr('x', 0)
 					.attr('y', 0)
@@ -36,18 +42,48 @@
 					.attr('stroke', '#888')
 					.attr('stroke-width', '1px')
 					.attr('fill', 'transparent')
-					.attr('transform', 'translate(300,300) rotate('+ angle + ')')
+					.attr('transform', function(d,i) { 
+						return 'translate(300,300) rotate('+  (initAngle + i*5 - 5) + ')';
+					})
 					.transition()
 					.duration(2000)
-					.attr('width', size)
-					.attr('height', size)
-					.attr('transform', 'translate(300,300) rotate('+ (angle+5) +')');
-				size = size + 1;
-				angle = angle + 5;
-				setTimeout(drawRect, 20);
+					.attr('width', function(d) { return d; })
+					.attr('height', function(d) { return d; })
+					.attr('transform', function(d,i) { 
+						return 'translate(300,300) rotate('+  (initAngle + i*5) + ')';
+					});
+
+				rect.exit().remove();
+				
 			}
 
-			drawRect();
+			var size = 10;
+			function rise() {
+			 	if (size > 200) {
+					return;
+				}
+				data.push(size++);
+				update();
+				setTimeout(rise, 20);
+			}
+
+			function fall() {
+				if (data.length < 1) {
+					return;
+				}
+				size--;
+				data.pop();
+				update();
+				setTimeout(fall, 20);
+			}
+
+			document.getElementById('svg-container').onclick = function() {
+				if (data.length == 191) {
+					fall();
+				} else if (data.length == 0) {
+					rise();
+				}
+			};
 
 		</script>
 	</body>
