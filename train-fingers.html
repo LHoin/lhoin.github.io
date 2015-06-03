@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<title>train fingers</title>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="//dl.dropboxusercontent.com/u/2950038/train-fingers.js"></script>
+		<style>
+		body{
+			font-family: Arial;
+			margin: 0;
+			padding: 10px;
+		}
+		#play-ground {
+			padding: 5px 5px 30px 5px;
+			overflow: auto;
+			border: 1px dotted royalblue;
+			position: relative;
+		}
+		.error-char {
+			color: red;
+		}
+		.right-char {
+			color: green;
+		}
+		.line {
+			line-height: 1.5;
+			font-size: 18px;
+			margin-bottom: 5px;
+			padding: 0 5px;
+			letter-spacing: 3px;
+		}
+		.input-line {
+			background-color: aliceblue;
+		}
+		.question-line {
+			background-color: cornsilk;
+		}
+		.tips {
+			font-size: 26px;
+			margin-bottom: 5px;
+		}
+		.status {
+			border: 1px dotted royalblue;
+			padding: 5px;
+			line-height: 1.5;
+			font-size: 18px;
+			position: fixed;
+			right: 35px;
+			top: 25px;
+			background-color: white;
+		}
+		.status label{
+			width:80px;
+			display:inline-block;
+			text-align: right;
+			margin-right:3px;
+		}
+		.status span{
+			width: 100px;
+			display: inline-block;
+		}
+		.line .cool-tag {
+			width: 18px;
+			background: url('http://dl.dropboxusercontent.com/u/2950038/hand.png');
+			display: inline-block;
+			margin-left: 5px;
+			height: 18px;
+			background-size: 18px 18px;
+			background-position: 0px 0px;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="play-ground">	
+			<div class='tips'>
+				Type Enter To Start: 
+			</div>
+			<div class='status'>
+				<div class="error"><label>error:</label><span></span></div>
+				<div class="right"><label>right:</label><span></span></div>
+				<div class="percent"><label>percent:</label><span></span></div>
+				<div class="speed"><label>speed:</label><span></span></div>
+				<div class="cool"><label>cool:</label><span></span></div>
+			</div>
+		</div>
+	</body>
+</html>
