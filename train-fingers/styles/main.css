@@ -16,6 +16,7 @@ body{
     letter-spacing: 5px;
     border-radius: 5px;
     margin: 5px;
+    position: relative;
 }
 .input-panel .question {
     width: 500px;
@@ -78,13 +79,16 @@ body{
     display: inline-block;
 }
 .line .cool-tag {
-    width: 18px;
+    width: 60px;
     background: url(../images/hand.png);
     display: inline-block;
-    margin-left: 5px;
-    height: 18px;
-    background-size: 18px 18px;
+    height: 60px;
+    background-size: 60px 60px;
     background-position: 0px 0px;
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    opacity: 0.6;
 }
 .result {
     position: absolute;
@@ -96,4 +100,5 @@ body{
 }
 .result-item {
     float: left;
+    position: relative;
 }
