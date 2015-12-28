@@ -82,7 +82,7 @@ $(function(){
 				var $coolTagDom = $(coolTagDom);
 				$coolTagDom.appendTo($inputLineLast)
 					.css({'right':100,opacity: 0})
-					.animate({'right':10,opacity: 1},200)
+					.animate({'right':0,opacity: 1},200)
 					.animate({opacity: 0.6},1000);
 			}
 			inputLineText = '';

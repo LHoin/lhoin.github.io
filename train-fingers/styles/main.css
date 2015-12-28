@@ -31,6 +31,24 @@ body{
     overflow: hidden;
     background-color: rgba(240,248,255,0.6);
 }
+@keyframes wink {
+    0% { opacity:0;}
+    50% { opacity:0.6; }
+    100% { opacity:0;}
+}
+.input-panel .answer:after {
+    content: '1';
+    width: 4px;
+    color: transparent;
+    background-color: #000;
+    display: inline-block;
+    transition: opacity 0.2s;
+    vertical-align: bottom;
+    margin: 0;
+    line-height: 40px;
+    margin: 10px 0px;
+    animation: wink 0.8s infinite;
+}
 
 .error-char {
     color: red;
@@ -39,13 +57,9 @@ body{
     color: green;
 }
 .line {
-    width: 255px;
-    margin-left: 10px;
-    margin-right: 10px;
     line-height: 30px;
     height: 30px;
     font-size: 18px;
-    margin-bottom: 5px;
     padding: 0 5px;
     letter-spacing: 3px;
 }
@@ -80,13 +94,13 @@ body{
 }
 .line .cool-tag {
     width: 60px;
+    top: 0;
     background: url(../images/hand.png);
     display: inline-block;
     height: 60px;
     background-size: 60px 60px;
     background-position: 0px 0px;
     position: absolute;
-    top: 2px;
     right: 10px;
     opacity: 0.6;
 }
@@ -101,4 +115,7 @@ body{
 .result-item {
     float: left;
     position: relative;
+    margin: 10px;
+    border-radius: 5px;
+    overflow: hidden;
 }
